@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RETURN ON ADVERTISMENT SPEND</title>
+    <style>
+        *
+        {
+            margin:0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+        .main
+        {
+            height: 100vh;
+            width: 100vw;
+            background-color:#F9A602;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .bigbox
+        {
+            height: 70%;
+            width: 350px;
+           overflow: auto;
+           border: 1px solid black;
+           border-radius: 15px;
+           box-shadow:0px  0px 3px 3px #C77E02;
+           background-color:   #66D1B5;
+           border: none;
+           display: flex;
+          justify-content: center;
+          text-align: center;
+          flex-wrap: wrap;
+          flex-direction: row;
+        }
+  .heading
+{
+    height: 10%;
+    width: 100%;
+    border: 1px solid none;
+    font-size: x-large;
+    margin-top: 10px;
+    
+}
+.smallbox
+{
+    height: 80%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+.ro
+{
+    margin-right: 4%;
+}
+.submit
+{
+    background-color: rgb(69, 228, 135); 
+    height: 10%;
+    width: 30%;
+    border-radius: 10px;
+    
+}
+    </style>
+</head>
+<body>
+     <div class="main">
+        <div class="bigbox">
+              <div class="heading">
+                <i>RETURN ON ADVERTISMENT SPEND</i>
+              </div>
+              <div class="smallbox">
+                <label for="value1">GROSS REVENUE FROM AD:</label><br>
+                <input type="number" id="value1" class="value1"><br><br>
+                <label for="value2">SPEND:</label><br>
+                <input type="number" id="value2" class="value2"><br><br>
+                <label for="value3">ADVERTISING COST:</label><br>
+                <input type="number" id="value3" class="value3"><br><br>
+                <input type="submit" class="submit" id="submit"><BR><BR>
+                <h2 class="roa" id="roa">ROA:0$</h2>
+              </div>
+        </div>
+     </div>
+     <script>
+         let submit =document.getElementById("submit");
+        submit.addEventListener("click",(e)=>
+    {
+        let gross=document.getElementById("value1").value;
+        let spend=document.getElementById("value2").value;
+        let adv=document.getElementById("value3").value;
+        if(gross && spend && adv)
+    {
+        let result=(gross)/(spend-adv);
+        console.log(result);
+        let roi=document.getElementById("roa");
+       roi.innerText=`ROA:${result}$`;
+    }
+    else
+    {
+        alert("FILL ALL THE VALUE");
+    }
+       
+    })
+     </script>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PROFIT MARGIN</title>
+    <style>
+        *
+        {
+            margin:0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+        .main
+        {
+            height: 100vh;
+            width: 100vw;
+            background-color:#F9A602;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .bigbox
+        {
+            height: 70%;
+            width: 350px;
+           overflow: auto;
+           border: 1px solid black;
+           border-radius: 15px;
+           box-shadow:0px  0px 3px 3px #C77E02;
+           background-color:   #66D1B5;
+           border: none;
+           display: flex;
+          justify-content: center;
+          text-align: center;
+          flex-wrap: wrap;
+          flex-direction: row;
+        }
+  .heading
+{
+    height: 10%;
+    width: 100%;
+    border: 1px solid none;
+    font-size: x-large;
+    margin-top: 10px;
+    
+}
+.smallbox
+{
+    height: 80%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+.ro
+{
+    margin-right: 4%;
+}
+.submit
+{
+    background-color: rgb(69, 228, 135); 
+    height: 10%;
+    width: 30%;
+    border-radius: 10px;
+    
+}
+    </style>
+</head>
+<body>
+     <div class="main">
+        <div class="bigbox">
+              <div class="heading">
+                <i>PROFIT MARGIN</i>
+              </div>
+              <div class="smallbox">
+                <label for="value1">NET PROFIT:</label><br>
+                <input type="number" id="value1" class="value1"><br><br><br>
+                <label for="value2">NET REVENUE:</label><br>
+                <input type="number" id="value2" class="value2"><br><br>
+                <input type="submit" class="submit" id="submit"><BR><BR>
+                <h2 class="roi" id="roi">PM:0%</h2>
+              </div>
+        </div>
+     </div>
+     <script>
+        let submit =document.getElementById("submit");
+        submit.addEventListener("click",(e)=>
+    {
+        let netprofit=document.getElementById("value1").value;
+        let revenue=document.getElementById("value2").value;
+        if(netprofit && revenue)
+    {
+        let result=(netprofit/revenue)*100;
+        console.log(result);
+        let roi=document.getElementById("roi");
+       roi.innerText=`PM:${result}%`;
+    }
+       else
+       {
+         if(netprofit)
+         {
+            alert("ENTER REVENUE");
+         }
+         else
+         {
+            alert("ENTER NET PROFIT");
+         }
+       }
+    })
+     </script>
+</body>
+</html>
